@@ -1,0 +1,150 @@
+﻿<Window x:Class="To_Do_list.Calendar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:To_Do_list"
+        mc:Ignorable="d"
+        Title="Calendar" Height="450" Width="900"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="60,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD1" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD1" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD1" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD1" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD1" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="174,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD2" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD2" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD2" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD2" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD2" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="290,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD3" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD3" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD3" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD3" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD3" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="404,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD4" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD4" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD4" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD4" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD4" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="518,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD5" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD5" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD5" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD5" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD5" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="631,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD6" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD6" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD6" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD6" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD6" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+        <Grid VerticalAlignment="Top" Background="LightGray" HorizontalAlignment="Left" Width="100" Height="100" Margin="743,146,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2"/>
+            <TextBlock x:Name="TextDatumD7" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Row="0"><Run Text="14.5"/></TextBlock>
+            <TextBlock x:Name="TextScoreD7" FontSize="12" FontWeight="Bold" Grid.Row="1"><Run Text="Score: 5000"/></TextBlock>
+            <TextBlock x:Name="TextUkolyD7" Grid.Row="2"><Run Text="Ukoly: 15"/></TextBlock>
+            <TextBlock x:Name="TextSplnenoD7" Grid.Row="3"><Run Text="Splněno 15"/></TextBlock>
+            <Button x:Name="ButtonD7" Grid.Row="4" Content="Deník" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonD1_Click" />
+        </Grid>
+
+        <TextBlock Text="Posun" FontSize="20" Margin="0,0,418,333" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="58" />
+        <Button Content="&gt;" Height="27"  Width="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_next" Margin="0,0,386,333"/>
+        <Button Content="&lt;" Height="27"  Width="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_previous" Margin="0,0,486,333"/>
+        <Button Content="zpět" Margin="308,334,308,52" Click="Button_back"/>
+
+    </Grid>
+</Window>

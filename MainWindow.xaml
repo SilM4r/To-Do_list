@@ -1,0 +1,60 @@
+﻿<Window x:Class="To_Do_list.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:To_Do_list"
+        mc:Ignorable="d"
+        Title="Advenc TO-DO list" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <Grid Height="NaN" Width="NaN">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView
+        x:Name="TodayList" 
+            Margin="84,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <CheckBox IsChecked="{Binding CheckBox}"
+                                  IsHitTestVisible="False"/>
+                        <TextBlock Text="{Binding Titulek}" Margin="5,0"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+        x:Name="TomorrowList" 
+            Margin="340,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <CheckBox IsChecked="{Binding CheckBox}"
+                                  IsHitTestVisible="False"/>
+                        <TextBlock Text="{Binding Titulek}" Margin="5,0"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Content="Kalendář" Height="34" Margin="612,0,0,296" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Calendar"/>
+        <Button Content="Vytvořit" Height="34" Margin="612,0,0,217" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Vytvorit_BTN"/>
+        <Button Content="Deník" Height="34" Margin="612,0,0,148" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Denik"/>
+
+        <TextBlock Text="Dnešní úkoly:" Height="23" Margin="84,0,0,322" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.481,0.444"/>
+
+        <TextBlock Text="Úkoly na:" Height="23" Margin="346,0,0,320" Width="54" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
+        <TextBlock x:Name="anotherDay"  Text="15.5.2033" Height="21" Margin="440,0,0,321" Width="66" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Button Content="&gt;" Height="21" Margin="514,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_next"/>
+        <Button Content="&lt;" Height="21" Margin="411,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_previous"/>
+
+        <TextBlock Text="Dnešní Score:" Height="23" Margin="36,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.498,0.503"/>
+        <TextBlock x:Name="textDailyScore" Text="100" Height="23" Margin="133,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
+        <TextBlock x:Name="textRealDatum" Height="23" Margin="609,0,0,379" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <TextBlock Text="Dnešní datum a čas:" Height="23" Margin="487,0,0,379" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
+    </Grid>
+</Window>
