@@ -77,7 +77,7 @@ namespace To_Do_list
                         seznamDnu[i, 0].Text = DateTime.Now.AddDays(vyberDnu + i).ToString("M");
                         seznamDnu[i, 1].Text = $"Score: {item.Score}";
                         seznamDnu[i, 2].Text = $"Ukoly: {item.NumberOfTasks}";
-                        seznamDnu[i, 3].Text = $"Ukoly: {item.NumCompletedTasks}";
+                        seznamDnu[i, 3].Text = $"Splněné ukoly: {item.NumCompletedTasks}";
                     }
                 }
 
@@ -88,7 +88,7 @@ namespace To_Do_list
                     seznamDnu[i, 0].Text = DateTime.Now.AddDays(vyberDnu + i).ToString("M");
                     seznamDnu[i, 1].Text = $"Score: 0";
                     seznamDnu[i, 2].Text = $"Ukoly: 0";
-                    seznamDnu[i, 3].Text = $"Ukoly: 0";
+                    seznamDnu[i, 3].Text = $"Splněné ukoly: 0";
                 }
             }
         }

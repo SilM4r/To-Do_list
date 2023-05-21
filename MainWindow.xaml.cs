@@ -234,7 +234,7 @@ namespace To_Do_list
 
             }
 
-            MessageBox.Show(string.Join("~~", dailyScore));
+            //MessageBox.Show(string.Join("~~", dailyScore));
             //MessageBox.Show(numDay.ToString());
 
             // vytvoří nové pokud je potřeba

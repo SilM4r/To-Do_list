@@ -27,6 +27,8 @@ namespace To_Do_list
         {
             this.d = d;
             InitializeComponent();
+
+            textObsah.Text = "";
             foreach (DailyScore item in d)
             {
                 if (item.Day.ToString("d") == date.ToString("d"))
