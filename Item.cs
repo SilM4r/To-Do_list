@@ -13,8 +13,6 @@ namespace To_Do_list
     {
         string titulek, obsah, date, dokdy;
         bool checkBox;
-
-
         int difficult;
 
         public bool CheckBox

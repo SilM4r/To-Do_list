@@ -71,6 +71,15 @@ namespace To_Do_list
                 else if (dokdy.ToLower() == "zítra")
                     PridaniItemu(date.AddDays(1).ToString("d"));
 
+                else if (dokdy.ToLower() == "pozítří")
+                    PridaniItemu(date.AddDays(2).ToString("d"));
+
+                else if (dokdy.ToLower() == "za týden")
+                    PridaniItemu(date.AddDays(7).ToString("d"));
+
+                else if (dokdy.ToLower() == "za čtrnáct dní")
+                    PridaniItemu(date.AddDays(14).ToString("d"));
+
                 if (konec)
                 {
                     string[] formats = { "d.M.yyyy" };
@@ -84,7 +93,9 @@ namespace To_Do_list
                     else
                         MessageBox.Show("Nepodporovaný formát datumu, prosím pište jenom ve formátu '1.1.2022'");
                 }
-            }           
+            }
+            else
+                MessageBox.Show("Pole název je povinné vyplnit, prosím zadej název.");
         }
 
         private void PridaniItemu(string datum)

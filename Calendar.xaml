@@ -146,5 +146,8 @@
         <Button Content="&lt;" Height="27"  Width="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_previous" Margin="0,0,486,333"/>
         <Button Content="zpět" Margin="308,334,308,52" Click="Button_back"/>
 
+        <TextBlock x:Name="textRealDatum" Height="23" Margin="753,0,0,375" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <TextBlock Text="Dnešní datum a čas:" Height="23" Margin="631,0,0,375" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
     </Grid>
 </Window>

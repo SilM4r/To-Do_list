@@ -37,19 +37,28 @@ namespace To_Do_list
 
         private string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "To_Do_List_MyDB.txt");
 
+        private Uri iconUri;
+
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // nastavení iconky
+            string path2 = path.Substring(0, path.Length - 44);
+            path2 += "icon\\todo3.png";
+            iconUri = new Uri(path2, UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+
+            // základní nastavení 
             dailyScore = new List<DailyScore>();
             list = new List<Item>();
+
+            // načtení z databáze a následné načtení
             LoadData();
             refresh();
 
-            DateTime dateTime = DateTime.Now;
-            DateTime dateTime1 = DateTime.Now;
-
-            //MessageBox.Show((dateTime1 - dateTime).Days.ToString());
-
+            // - asynchroní funce na čas v reálném čase
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 textRealDatum.Text = DateTime.Now.ToString();
@@ -60,9 +69,11 @@ namespace To_Do_list
 
         }
 
-        private void Vytvorit_BTN(object sender, RoutedEventArgs e)
+        private void Vytvorit_BTN(object sender, RoutedEventArgs e) // otevře nové okno na vytvoření nového úkolu
         {
             VytvoreniUkolu VU = new VytvoreniUkolu(list);
+
+            VU.Icon = BitmapFrame.Create(iconUri);
 
             VU.Closed += (s, e) =>
             {
@@ -70,10 +81,13 @@ namespace To_Do_list
             };
             VU.ShowDialog();
 
-        }
-        private void Button_Denik(object sender, RoutedEventArgs e)
+        }  
+
+        private void Button_Denik(object sender, RoutedEventArgs e) // otevře nové okno na vytvoření denníku
         {
             Diary D = new Diary(dailyScore, DateTime.Now);
+
+            D.Icon = BitmapFrame.Create(iconUri);
 
             D.Closed += (s, e) =>
             {
@@ -81,9 +95,12 @@ namespace To_Do_list
             };
             D.ShowDialog();
         }
-        private void Button_Calendar(object sender, RoutedEventArgs e)
+
+        private void Button_Calendar(object sender, RoutedEventArgs e)// otevře nové okno na kalendář
         {
             Calendar C = new Calendar(dailyScore);
+
+            C.Icon = BitmapFrame.Create(iconUri);
 
             C.Closed += (s, e) =>
             {
@@ -92,11 +109,13 @@ namespace To_Do_list
             C.ShowDialog();
 
         }
-
-        private void EditWin(object s)
+        private void EditWin(object s)// otevře nové okno na editaci ukolu (double click)
         {
             Item? selected = (s as ListView)?.SelectedItem as Item;
             EditUkol EU = new EditUkol(selected);
+
+            EU.Icon = BitmapFrame.Create(iconUri);
+
             EU.Closed += (s, e) =>
             {
                 refresh();
@@ -105,7 +124,19 @@ namespace To_Do_list
             EU.ShowDialog();
         }
 
-        private void refresh()
+        private void Button_next(object sender, RoutedEventArgs e) // přepínání dne (další den)
+        {
+            vyberDnu += 1;
+            refresh();
+        }
+
+        private void Button_previous(object sender, RoutedEventArgs e) // přepínání dne (minulý den)
+        {
+            vyberDnu -= 1;
+            refresh();
+        }
+
+        private void refresh() // funkce na obnovu dat v realnem čase
         {
             TodayList.ItemsSource = null;
             TomorrowList.ItemsSource = null;
@@ -129,26 +160,105 @@ namespace To_Do_list
 
             anotherDay.Text = DateTime.Now.AddDays(vyberDnu).ToString("d");
 
-            textDailyScore.Text = ScoreRefresh(0)[0].ToString();
+            textDailyScore.Text = ScoreRefresh(DateTime.Now)[0].ToString();
 
             DailyScoreRefresh();
             SaveData();
         }
 
-        private void Button_next(object sender, RoutedEventArgs e)
+        private void DailyScoreRefresh() // obnova seznamu dailyScore + přidávání nových itemů 
         {
-            vyberDnu += 1;
-            refresh();
+            List<int> ints;
+
+            int i2;
+            bool b = true;
+            DateTime date;
+
+
+            foreach (Item item in list)
+            {
+                foreach (DailyScore daily in dailyScore)
+                {
+                    if (DateTime.Parse(daily.Day.ToString("d")) == DateTime.Parse(item.Dokdy))
+                    {
+                        b = false;
+                    }
+                }
+
+                if (b)
+                {
+                    date = DateTime.Parse(item.Dokdy);
+                    ints = ScoreRefresh(date);
+                    dailyScore.Add(new DailyScore(date, ints[0], ints[1], ints[2], " "));
+                }
+
+                b = true;
+            }
+
+            dailyScore = dailyScore.OrderBy(x => x.Day.TimeOfDay).ToList();
+
+            // obnoví stávající
+            for (int i = dailyScore.Count() - 1; i > -1 ; i--)
+            {
+                i2 = dailyScore.Count() - i - 1;
+                ints = ScoreRefresh(dailyScore[i2].Day);
+
+                //if (dailyScore[i2].Score < ints[0])
+                dailyScore[i2].Score = ints[0];
+
+                if (dailyScore[i2].NumberOfTasks < ints[1])
+                    dailyScore[i2].NumberOfTasks = ints[1];
+
+                if (dailyScore[i2].NumCompletedTasks < ints[2])
+                    dailyScore[i2].NumCompletedTasks = ints[2];
+            }
         }
 
-        private void Button_previous(object sender, RoutedEventArgs e)
+        private List<int> ScoreRefresh(DateTime d) // získání dat z hlavní ho listu (score, počet úkolů a počet hotových úkolů)
         {
-            vyberDnu -= 1;
-            refresh();
+            List<int> seznam = new List<int>();
+
+            int score = 0;
+            int taskscomplete = 0;
+            int tasks = 0;
+            foreach (Item item in list)
+            {
+
+                if (item.Dokdy == d.ToString("d"))
+                {
+
+                    if (item.CheckBox == true)
+                    {
+                        score += item.Difficult;
+                        taskscomplete++;
+                    }
+
+                    if (DateTime.Parse(item.Dokdy) < DateTime.Parse(DateTime.Now.ToString("d")))
+                    {
+                        if (item.CheckBox == false)
+                        {
+                            if (item.Difficult == 0)
+                                continue;
+                            
+                            else if (item.Difficult == 100)
+                                score += -1;
+                       
+                            else
+                                score += item.Difficult - 100;
+                        }
+                    }
+                    tasks++;
+                }
+            }
+
+            seznam.Add(score);
+            seznam.Add(tasks);
+            seznam.Add(taskscomplete);
+
+            return seznam;
         }
 
-
-        private void SaveData()
+        private void SaveData() // funkce na uložení (v budoucnu jako vlastní třída "Save_Load")
         {
             string res0 = string.Join("~~", dailyScore) + Environment.NewLine;
             string res = string.Join("~~", list) + Environment.NewLine;
@@ -157,13 +267,13 @@ namespace To_Do_list
             File.WriteAllText(path, sifra.Cipher(resFinal));
         }
 
-        private void LoadData()
+        private void LoadData() // funkce na načtení dat ze souboru (v budoucnu jako vlastní třída "Save_Load")
         {
             string[] data;
 
             if (!File.Exists(path))
             {
-                using (FileStream fs = File.Create("To_Do_List_MyDB.txt")){ }
+                using (FileStream fs = File.Create("To_Do_List_MyDB.txt")) { }
             }
 
             if (File.ReadAllText(path) == string.Empty)
@@ -196,107 +306,14 @@ namespace To_Do_list
             }
         }
 
-        private void DailyScoreRefresh()
+        public Uri getPathIcon() // funkce vrátí uri trasu na iconku 
         {
-            List<int> ints;
-            string den = "0";
-            int numDay;
-
-            int i2;
-
-            ///// (1) nemusí být
-            foreach (Item item in list) {
-
-                if (den == "0")
-                {
-                    den = item.Dokdy;
-                }
-
-                else if (DateTime.Parse(item.Dokdy) < DateTime.Parse(den)) 
-                {
-                    den = item.Dokdy;
-                }
-            }
-
-            if (den == "0")
-            {
-                den = DateTime.Now.ToString();
-            }
-
-            numDay = Convert.ToInt16((DateTime.Now - DateTime.Parse(den)).Days);
-
-            ///// (1)
-
-            if (dailyScore.Any())
-            {
-                DailyScore lastitem = dailyScore.Last();
-                numDay = Convert.ToInt16(DateTime.Now.Day - lastitem.Day.Day);
-
-            }
-
-            //MessageBox.Show(string.Join("~~", dailyScore));
-            //MessageBox.Show(numDay.ToString());
-
-            // vytvoří nové pokud je potřeba
-            for (int i = numDay; i >= 1; i--)
-            {
-                ints = ScoreRefresh(-i);
-                dailyScore.Add(new DailyScore(DateTime.Now.AddDays(-i+1), ints[0], ints[1], ints[2], " "));
-            }
-
-            // obnoví stávající
-            for (int i = dailyScore.Count() - 1; i > -1 ; i--)
-            {
-                ints = ScoreRefresh(-i);
-
-                i2 = dailyScore.Count() - i - 1;
-
-                if (dailyScore[i2].Score < ints[0])
-                    dailyScore[i2].Score = ints[0];
-
-                if (dailyScore[i2].NumberOfTasks < ints[1])
-                    dailyScore[i2].NumberOfTasks = ints[1];
-
-                if (dailyScore[i2].NumCompletedTasks < ints[2])
-                    dailyScore[i2].NumCompletedTasks = ints[2];
-            }
+            return iconUri;
         }
-
-        private List<int> ScoreRefresh(int i)
-        {
-            List<int> seznam = new List<int>();
-
-            int score = 0;
-            int taskscomplete = 0;
-            int tasks = 0;
-            foreach (Item item in list)
-            {
-                if (item.Dokdy == DateTime.Now.AddDays(i).ToString("d"))
-                {
-                    if (item.CheckBox == true)
-                    {
-                        score += item.Difficult;
-                        taskscomplete++;
-
-                    }
-                    tasks++;
-                }
-            }
-            seznam.Add(score);
-            seznam.Add(tasks);
-            seznam.Add(taskscomplete);
-
-            return seznam;
-        }
-
-
-
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e) // ošetření toho že když vypnete aplikaci tak se sama uloží
         {
             refresh();
             base.OnClosing(e);
         }
-
-        
     }
 }

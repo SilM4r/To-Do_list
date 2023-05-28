@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace To_Do_list
 {
@@ -33,6 +34,11 @@ namespace To_Do_list
 
             refresh(dailyScore);
 
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                textRealDatum.Text = DateTime.Now.ToString();
+            }, this.Dispatcher);
+
 
         }
 
@@ -45,7 +51,13 @@ namespace To_Do_list
 
             Diary D = new Diary(dailyScore, DateTime.Now.AddDays((vyberDnu) + lastCharacter - '0' -1));
 
+            MainWindow M = new MainWindow();
+
+            D.Icon = BitmapFrame.Create(M.getPathIcon());
+
             D.ShowDialog();
+
+            M.Close();
 
 
         }

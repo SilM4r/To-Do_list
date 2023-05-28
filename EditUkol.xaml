@@ -9,20 +9,20 @@
         ResizeMode="NoResize">
     <Grid Margin="0,0,0,-6">
         <TextBlock Text="Název:" Margin="228,0,0,546" Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="40"/>
-        <TextBox x:Name="textNazev" Text="test" Margin="128,0,0,509" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="240" MaxLength="32" TextAlignment="Center" />
+        <TextBox x:Name="textNazev" Text="" Margin="128,0,0,509" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="240" MaxLength="32" TextAlignment="Center"/>
 
         <TextBlock Text="Podrobnosti:" Margin="214,0,0,471" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68"/>
-        <TextBox x:Name="textObsah" Text="test2" Margin="128,0,0,298" Height="156" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="240"
+        <TextBox x:Name="textObsah" Margin="128,0,0,298" Height="156" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="240"
                  HorizontalScrollBarVisibility="Visible"  
                  VerticalScrollBarVisibility="Visible"  
                  TextWrapping="Wrap"  
                  MaxLength="500"/>
 
         <TextBlock Text="Do kdy:" Margin="128,0,0,244" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68"/>
-        <TextBox x:Name="textdatum" Text="test3" Margin="214,0,0,244" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="155" MaxLength="16"/>
+        <TextBox x:Name="textdatum" Text="" Margin="214,0,0,244" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="155" MaxLength="16"/>
 
         <TextBlock Text="Datum vytvoření:" Margin="128,0,0,210" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="94"/>
-        <TextBlock x:Name="textdatumV" Text="test3" Margin="244,0,0,210" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="125"/>
+        <TextBlock x:Name="textdatumV" Text="" Margin="244,0,0,210" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="125"/>
 
         <TextBlock Text="Obtížnost úkolu:" Margin="128,0,0,134" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92"/>
         <Slider Name="sObtiznost" Margin="212,0,0,101" VerticalAlignment="Bottom" Height="21" RenderTransformOrigin="0.505,0.477" 

@@ -33,7 +33,7 @@ namespace To_Do_list
             textdatumV.Text = i.Date.ToString();
 
 
-            if (i.CheckBox == true || DateTime.Parse(i.Dokdy) < DateTime.Now.AddDays(-1)) 
+            if (i.CheckBox == true || DateTime.Parse(i.Dokdy) < DateTime.Now.AddDays(-1))
             {
                 textNazev.IsReadOnly = true;
                 textdatum.IsReadOnly = true;
@@ -47,7 +47,7 @@ namespace To_Do_list
         {
             if (i.CheckBox == false)
             {
-                if (i.Dokdy == DateTime.Now.ToString("d") || DateTime.Parse(i.Dokdy) < DateTime.Now.AddDays(-1)) 
+                if (i.Dokdy == DateTime.Now.ToString("d") || DateTime.Parse(i.Dokdy) < DateTime.Now.AddDays(-1))
                 {
                     i.CheckBox = true;
                     i.Titulek = textNazev.Text.Replace('~', ' ');
