@@ -18,7 +18,7 @@
                  TextWrapping="Wrap"  
                  MaxLength="600"/>
 
-        <TextBlock Text="Do kdy?" Margin="134,0,0,193" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68"/>
+        <TextBlock Text="Na jaký den?" Margin="134,0,0,193" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68"/>
         <TextBox x:Name="textdatum" Text="" Margin="213,0,0,193" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="161" MaxLength="16"/>
 
         <TextBlock Text="Obtížnost úkolu:" Margin="134,0,0,146" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="91"/>

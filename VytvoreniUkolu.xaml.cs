@@ -48,6 +48,8 @@ namespace To_Do_list
             date = DateTime.Now;
             obt = Convert.ToInt32(sObtiznost.Value);
 
+            // všechny různé možnosti vypsání
+
             if (!string.IsNullOrEmpty(titulek))
             {
                 if (string.IsNullOrEmpty(dokdy))
@@ -80,7 +82,8 @@ namespace To_Do_list
                 else if (dokdy.ToLower() == "za čtrnáct dní")
                     PridaniItemu(date.AddDays(14).ToString("d"));
 
-                if (konec)
+
+                if (konec) // pokud to není ani jedna z těhlech možností tak vyber klasický formát
                 {
                     string[] formats = { "d.M.yyyy" };
                     DateTime dateValue;
@@ -89,6 +92,9 @@ namespace To_Do_list
                     {
                         if (dateValue >= date.AddDays(-1))
                             PridaniItemu(dateValue.ToString("d"));
+
+                        else
+                            MessageBox.Show("Úkoly nejde zadávat do minulosti, prosím napiš jiné datum");
                     }
                     else
                         MessageBox.Show("Nepodporovaný formát datumu, prosím pište jenom ve formátu '1.1.2022'");
@@ -98,7 +104,7 @@ namespace To_Do_list
                 MessageBox.Show("Pole název je povinné vyplnit, prosím zadej název.");
         }
 
-        private void PridaniItemu(string datum)
+        private void PridaniItemu(string datum) // vytváří a přidává nový item do seznamu 
         {
             Item p = new Item(titulek.Replace('~', ' '), obsah.Replace('~', ' '), datum, date.ToString(), obt, false);
             i.Add(p);

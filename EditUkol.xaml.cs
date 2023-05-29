@@ -55,6 +55,9 @@ namespace To_Do_list
                     i.Difficult = Convert.ToInt32(sObtiznost.Value);
                     this.Close();
                 }
+
+                else
+                    MessageBox.Show("Úkol nejde splnit, protože ješte není den splnění");
             }
         }
 
@@ -75,6 +78,8 @@ namespace To_Do_list
                     i.Dokdy = dateValue.ToString("d");
                     this.Close();
                 }
+                else
+                    MessageBox.Show("Ukoly nejde zadávat do minulosti");
             }
             else
                 MessageBox.Show("Nepodporovaný formát datumu, prosím pište jenom ve formátu '1.1.2022'");

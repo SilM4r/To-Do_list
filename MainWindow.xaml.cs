@@ -50,7 +50,7 @@ namespace To_Do_list
             iconUri = new Uri(path2, UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
 
-            // základní nastavení 
+            // vytvoření nových prázdných seznamů
             dailyScore = new List<DailyScore>();
             list = new List<Item>();
 

@@ -9,10 +9,10 @@
         ResizeMode="NoResize">
     <Grid>
 
-        <Button Content="zpět" Height="34" Margin="0,361,0,0" Width="126" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Back"/>
+        <Button Content="zpět" Height="34" Margin="0,370,0,0" Width="126" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Back"/>
 
         <TextBlock Text="Vytváření nových úkolů" Margin="57,0,0,380" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="129"/>
-        <TextBlock Text="- Při vytváření nových úkolů je povinné vyplnit název ukolu a datum do kdy je ten ukol (když není zadán 'dokdy' tak se automaticky dá na aktualní den) je možné datum do kdy psát bud jako klasický datum ve formátu '1.1.2022' nebo jako text 'dnešek', 'zítřek'... Podrobnosti nejsou povinné a můžou být prázdné. Max počet znaků u podrobnosti je 600 a u nazvu je max 32 znaku " TextWrapping="Wrap" Margin="26,0,0,217" Height="149" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
+        <TextBlock Text="- Při vytváření nových úkolů je povinné vyplnit název ukolu a datum (když datum není zadán tak se automaticky dá na aktualní den) je možné datum psát bud jako klasický datum ve formátu '1.1.2022' nebo jako text 'dnešek', 'zítřek'... Podrobnosti nejsou povinné a můžou být prázdné. Max počet znaků u podrobnosti je 600 a u nazvu je max 32 znaku." TextWrapping="Wrap" Margin="26,0,0,217" Height="149" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
         <TextBlock Text="- Nejde vytvářet ukoly do minulosti, pouze na dnešek nebo do budoucnosti. " TextWrapping="Wrap" Margin="26,0,0,118" HorizontalAlignment="Left" Width="246" Height="87" VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Editace, splnění, obtižnost" Margin="358,0,0,383" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="167"/>
@@ -20,8 +20,8 @@
         <TextBlock Text="- Úkly lze splnit až po datumu (nebo v datumu) do kdy mají být splněny, nelze splnit budoucí úkoly." TextWrapping="Wrap" Margin="300,0,0,232" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
         <TextBlock Text="- Pokud splníte ukol tak se vám do denního score přičte obtížnost ukolu (otížnost 10 přidá 10 score) pokud daný ukol nesplnite do datumu který jste si zvolily tak se vám score naopak ubírá a to přesně obráceně. Čím vyšší je obtížnost tím se mín ubere a čím je nižší tím víc (počítá se to 'obtiznost' - 100) (vijimka je při nule kdy se ani neubírá ani nepřibírá) Score se ukládá a každý nový den se začíná od 0." TextWrapping="Wrap" Margin="300,0,0,80" Height="142" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
 
-        <TextBlock Text=" Poznámky " Margin="630,0,0,384" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
-        <TextBlock Text="- Score je tu poze pro motivaci. A díki score tak můžete sami sebe porovnávat jak jste byly produktivní a jak se vám v daném dnu dařilo. Tenhle přehled můžete vidět v Kalendáři.  " TextWrapping="Wrap" Margin="586,0,0,279" HorizontalAlignment="Left" Width="204" Height="87" VerticalAlignment="Bottom"/>
+        <TextBlock Text=" Poznámky " Margin="619,0,0,383" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
+        <TextBlock Text="- Score je tu poze pro motivaci. A díki score tak můžete sami sebe porovnávat jak jste byly produktivní a jak se vám v daném dnu dařilo. Tenhle přehled můžete vidět v Kalendáři.  " TextWrapping="Wrap" Margin="575,0,0,281" HorizontalAlignment="Left" Width="204" Height="87" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
