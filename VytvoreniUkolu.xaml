@@ -16,7 +16,7 @@
                  HorizontalScrollBarVisibility="Visible"  
                  VerticalScrollBarVisibility="Visible"  
                  TextWrapping="Wrap"  
-                 MaxLength="500"/>
+                 MaxLength="600"/>
 
         <TextBlock Text="Do kdy?" Margin="134,0,0,193" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68"/>
         <TextBox x:Name="textdatum" Text="" Margin="213,0,0,193" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="161" MaxLength="16"/>

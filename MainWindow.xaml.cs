@@ -109,6 +109,20 @@ namespace To_Do_list
             C.ShowDialog();
 
         }
+
+        private void Button_nastaveni(object sender, RoutedEventArgs e) // otevře nové okno na vytvoření nového úkolu
+        {
+            Settings S = new Settings();
+
+            S.Icon = BitmapFrame.Create(iconUri);
+
+            S.Closed += (s, e) =>
+            {
+                refresh();
+            };
+            S.ShowDialog();
+
+        }
         private void EditWin(object s)// otevře nové okno na editaci ukolu (double click)
         {
             Item? selected = (s as ListView)?.SelectedItem as Item;

@@ -11,12 +11,11 @@
         ResizeMode="NoResize">
     <Grid Height="NaN" Width="NaN">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="763*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ListView
         x:Name="TodayList" 
-            Margin="47,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1">
+            Margin="84,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -29,7 +28,7 @@
         </ListView>
         <ListView
         x:Name="TomorrowList" 
-            Margin="303,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1">
+            Margin="340,121,0,0" Height="262" Width="210" VerticalAlignment="Top" HorizontalAlignment="Left">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -41,23 +40,24 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Content="Kalendář" Height="34" Margin="575,0,0,296" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Calendar" Grid.Column="1"/>
-        <Button Content="Vytvořit" Height="34" Margin="575,0,0,217" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Vytvorit_BTN" Grid.Column="1"/>
-        <Button Content="Deník" Height="34" Margin="575,0,0,148" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Denik" Grid.Column="1"/>
+        <Button Content="Kalendář" Height="34" Margin="612,0,0,296" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Calendar"/>
+        <Button Content="Vytvořit" Height="34" Margin="612,0,0,217" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Vytvorit_BTN"/>
+        <Button Content="Deník" Height="34" Margin="612,0,0,148" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Denik"/>
+        <Button Content="Nápověda a nastavení" Height="34" Margin="612,0,0,76" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_nastaveni"/>
 
-        <TextBlock Text="Dnešní úkoly:" Height="23" Margin="47,0,0,322" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.481,0.444" Grid.Column="1"/>
+        <TextBlock Text="Dnešní úkoly:" Height="23" Margin="84,0,0,322" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.481,0.444"/>
 
-        <TextBlock Text="Úkoly na:" Height="23" Margin="309,0,0,320" Width="54" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1"/>
+        <TextBlock Text="Úkoly na:" Height="23" Margin="346,0,0,320" Width="54" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
-        <TextBlock x:Name="anotherDay"  Text="15.5.2033" Height="21" Margin="403,0,0,321" Width="66" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1"/>
-        <Button Content="&gt;" Height="21" Margin="477,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_next" Grid.Column="1"/>
-        <Button Content="&lt;" Height="21" Margin="374,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_previous" Grid.Column="1"/>
+        <TextBlock x:Name="anotherDay"  Text="15.5.2033" Height="21" Margin="440,0,0,321" Width="66" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Button Content="&gt;" Height="21" Margin="514,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_next"/>
+        <Button Content="&lt;" Height="21" Margin="411,0,0,322" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_previous"/>
 
-        <TextBlock Text="Dnešní Score:" Height="23" Margin="36,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.498,0.503" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="textDailyScore" Text="100" Height="23" Margin="96,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1"/>
+        <TextBlock Text="Dnešní Score:" Height="23" Margin="36,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.498,0.503"/>
+        <TextBlock x:Name="textDailyScore" Text="100" Height="23" Margin="133,0,0,379" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
-        <TextBlock x:Name="textRealDatum" Height="23" Margin="572,0,0,379" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1"/>
-        <TextBlock Text="Dnešní datum a čas:" Height="23" Margin="450,0,0,379" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1"/>
+        <TextBlock x:Name="textRealDatum" Height="23" Margin="609,0,0,379" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <TextBlock Text="Dnešní datum a čas:" Height="23" Margin="487,0,0,379" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
     </Grid>
 </Window>
