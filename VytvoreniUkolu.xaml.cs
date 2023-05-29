@@ -106,12 +106,16 @@ namespace To_Do_list
 
         private void PridaniItemu(string datum) // vytváří a přidává nový item do seznamu 
         {
-            Item p = new Item(titulek.Replace('~', ' '), obsah.Replace('~', ' '), datum, date.ToString(), obt, false);
-            i.Add(p);
-            Close();
-            konec = false;
+            if (titulek != null && obsah != null) 
+            {
+                Item p = new Item(titulek.Replace('~', ' '), obsah.Replace('~', ' '), datum, date.ToString(), obt, false);
+                i.Add(p);
+                Close();
+                konec = false;
 
-            MessageBox.Show("Nový úkol byl úspěšně přidán");
+                MessageBox.Show("Nový úkol byl úspěšně přidán");
+            }
+
         }
 
     }
