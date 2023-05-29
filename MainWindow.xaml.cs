@@ -126,16 +126,20 @@ namespace To_Do_list
         private void EditWin(object s)// otevře nové okno na editaci ukolu (double click)
         {
             Item? selected = (s as ListView)?.SelectedItem as Item;
-            EditUkol EU = new EditUkol(selected);
 
-            EU.Icon = BitmapFrame.Create(iconUri);
-
-            EU.Closed += (s, e) =>
+            if (selected != null)
             {
-                refresh();
-                (s as ListView)?.UnselectAll();
-            };
-            EU.ShowDialog();
+                EditUkol EU = new EditUkol(selected);
+
+                EU.Icon = BitmapFrame.Create(iconUri);
+
+                EU.Closed += (s, e) =>
+                {
+                    refresh();
+                    (s as ListView)?.UnselectAll();
+                };
+                EU.ShowDialog();
+            }
         }
 
         private void Button_next(object sender, RoutedEventArgs e) // přepínání dne (další den)
