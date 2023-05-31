@@ -49,7 +49,10 @@ namespace To_Do_list
         {
 
             if (buttonSave.Visibility == Visibility.Visible)
-                today.Diary = textObsah.Text;
+                if (today != null)
+                    today.Diary = textObsah.Text;
+                else
+                    d.Add(new DailyScore(DateTime.Parse(DateTime.Now.ToString("d")), 0, 0, 0, textObsah.Text));
             this.Close();
             return;
                 
