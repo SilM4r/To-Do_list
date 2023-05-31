@@ -52,11 +52,11 @@ namespace To_Do_list
                 if (today != null)
                     today.Diary = textObsah.Text;
                 else
-                    d.Add(new DailyScore(DateTime.Parse(DateTime.Now.ToString("d")), 0, 0, 0, textObsah.Text));
+                    d.Add(new DailyScore(DateTime.Parse(DateTime.Now.ToString("d")), 0, 0, 0, textObsah.Text.Replace('~', ' ')));
             this.Close();
             return;
-                
-            
+
+
         }
     }
 }
