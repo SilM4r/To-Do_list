@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Enumeration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,9 @@ namespace To_Do_list
 
         private int vyberDnu = 1;
 
-        private string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "To_Do_List_MyDB.txt");
+        private const string fileName = "To_Do_List_MyDB.txt";
+
+        private string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
         private Uri iconUri;
 
@@ -43,6 +46,7 @@ namespace To_Do_list
         public MainWindow()
         {
             InitializeComponent();
+
 
             // nastavení iconky
             string path2 = path.Substring(0, path.Length - 44);
@@ -73,8 +77,10 @@ namespace To_Do_list
         {
             VytvoreniUkolu VU = new VytvoreniUkolu(list);
 
+            // nastavení iconky
             VU.Icon = BitmapFrame.Create(iconUri);
 
+            // při zavření se sputí fuknce refresh()
             VU.Closed += (s, e) =>
             {
                 refresh();
@@ -87,8 +93,10 @@ namespace To_Do_list
         {
             Diary D = new Diary(dailyScore, DateTime.Now);
 
+            // nastavení iconky
             D.Icon = BitmapFrame.Create(iconUri);
 
+            // při zavření se sputí fuknce refresh()
             D.Closed += (s, e) =>
             {
                 refresh();
@@ -100,8 +108,10 @@ namespace To_Do_list
         {
             Calendar C = new Calendar(dailyScore);
 
+            // nastavení iconky
             C.Icon = BitmapFrame.Create(iconUri);
 
+            // při zavření se sputí fuknce refresh()
             C.Closed += (s, e) =>
             {
                 refresh();
@@ -114,8 +124,10 @@ namespace To_Do_list
         {
             Settings S = new Settings();
 
+            // nastavení iconky
             S.Icon = BitmapFrame.Create(iconUri);
 
+            // při zavření se sputí fuknce refresh()
             S.Closed += (s, e) =>
             {
                 refresh();
@@ -123,6 +135,7 @@ namespace To_Do_list
             S.ShowDialog();
 
         }
+
         private void EditWin(object s)// otevře nové okno na editaci ukolu (double click)
         {
             Item? selected = (s as ListView)?.SelectedItem as Item;
@@ -154,7 +167,10 @@ namespace To_Do_list
             refresh();
         }
 
-        private void refresh() // funkce na obnovu dat v realnem čase
+        /// <summary>
+        /// funkce na obnovu všech dat a uložení 
+        /// </summary>
+        private void refresh() 
         {
             TodayList.ItemsSource = null;
             TomorrowList.ItemsSource = null;
@@ -183,8 +199,10 @@ namespace To_Do_list
             DailyScoreRefresh();
             SaveData();
         }
-
-        private void DailyScoreRefresh() // obnova seznamu dailyScore + přidávání nových itemů 
+        /// <summary>
+        /// obnova seznamu dailyScore + přidávání nových itemů do dailyScore
+        /// </summary>
+        private void DailyScoreRefresh()
         {
             List<int> ints;
 
@@ -192,7 +210,7 @@ namespace To_Do_list
             bool b = true;
             DateTime date;
 
-
+            // vytvoření nových pokud je potřeba nebo pokud chybí
             foreach (Item item in list)
             {
                 foreach (DailyScore daily in dailyScore)
@@ -212,7 +230,7 @@ namespace To_Do_list
 
                 b = true;
             }
-
+            // seřadí podle datumu
             dailyScore = dailyScore.OrderBy(x => x.Day.TimeOfDay).ToList();
 
             // obnoví stávající
@@ -221,7 +239,7 @@ namespace To_Do_list
                 i2 = dailyScore.Count() - i - 1;
                 ints = ScoreRefresh(dailyScore[i2].Day);
 
-                //if (dailyScore[i2].Score < ints[0])
+                // if (dailyScore[i2].Score < ints[0])
                 dailyScore[i2].Score = ints[0];
 
                 if (dailyScore[i2].NumberOfTasks < ints[1])
@@ -232,6 +250,9 @@ namespace To_Do_list
             }
         }
 
+        /// <summary>
+        /// získání dat z hlavního listu kde najde všechny ukoly v zadaném datumu "d" a vrátí [score, počet úkolů, počet hotových úkolů] v danám datumu
+        /// </summary>
         private List<int> ScoreRefresh(DateTime d) // získání dat z hlavní ho listu (score, počet úkolů a počet hotových úkolů)
         {
             List<int> seznam = new List<int>();
@@ -275,8 +296,10 @@ namespace To_Do_list
 
             return seznam;
         }
-
-        private void SaveData() // funkce na uložení (v budoucnu jako vlastní třída "Save_Load")
+        /// <summary>
+        /// funkce na uložení (v budoucnu jako vlastní třída "Save_Load")
+        /// </summary>
+        private void SaveData()
         {
             string res0 = string.Join("~~", dailyScore) + Environment.NewLine;
             string res = string.Join("~~", list) + Environment.NewLine;
@@ -285,13 +308,16 @@ namespace To_Do_list
             File.WriteAllText(path, sifra.Cipher(resFinal));
         }
 
-        private void LoadData() // funkce na načtení dat ze souboru (v budoucnu jako vlastní třída "Save_Load")
+        /// <summary>
+        /// funkce na načtení dat ze souboru (v budoucnu jako vlastní třída "Save_Load")
+        /// </summary>
+        private void LoadData()
         {
             string[] data;
 
             if (!File.Exists(path))
             {
-                using (FileStream fs = File.Create("To_Do_List_MyDB.txt")) { }
+                using (FileStream fs = File.Create(fileName)) { }
             }
 
             if (File.ReadAllText(path) == string.Empty)
@@ -324,11 +350,17 @@ namespace To_Do_list
             }
         }
 
-        public Uri getPathIcon() // funkce vrátí uri trasu na iconku 
+        /// <summary>
+        /// funkce vrátí uri trasu na iconku
+        /// </summary>
+        public Uri getPathIcon()
         {
             return iconUri;
         }
-        protected override void OnClosing(CancelEventArgs e) // ošetření toho že když vypnete aplikaci tak se sama uloží
+        /// <summary>
+        /// ošetření toho že když se vypne aplikace, tak se sama uloží
+        /// </summary>
+        protected override void OnClosing(CancelEventArgs e)
         {
             refresh();
             base.OnClosing(e);

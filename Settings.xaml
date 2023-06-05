@@ -17,11 +17,11 @@
 
         <TextBlock Text="Editace, splnění, obtižnost" Margin="358,0,0,383" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="167"/>
         <TextBlock Text="- Když dvakrát kliknete na ukol v seznamu tak se zobrazí editační menu kde lze editovat daný ukol. Editovat se dá pouze budoucí a dnešní ukoly. úkoly v minulusti a splněné ukoly už nelze editovat.  " TextWrapping="Wrap" Margin="300,0,0,281" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
-        <TextBlock Text="- Úkly lze splnit až po datumu (nebo v datumu) do kdy mají být splněny, nelze splnit budoucí úkoly." TextWrapping="Wrap" Margin="300,0,0,232" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
-        <TextBlock Text="- Pokud splníte ukol tak se vám do denního score přičte obtížnost ukolu (otížnost 10 přidá 10 score) pokud daný ukol nesplnite do datumu který jste si zvolily tak se vám score naopak ubírá a to přesně obráceně. Čím vyšší je obtížnost tím se mín ubere a čím je nižší tím víc (počítá se to 'obtiznost' - 100) (vijimka je při nule kdy se ani neubírá ani nepřibírá) Score se ukládá a každý nový den se začíná od 0." TextWrapping="Wrap" Margin="300,0,0,80" Height="142" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
+        <TextBlock Text="- Úkoly lze splnit až po datumu (nebo v datumu) do kdy mají být splněny, nelze splnit budoucí úkoly." TextWrapping="Wrap" Margin="300,0,0,232" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
+        <TextBlock Text="- Pokud splníte ukol tak se vám do denního score přičte obtížnost ukolu (otížnost 10 přidá 10 score) pokud daný ukol nesplnite do datumu který jste si zvolily tak se vám score naopak ubírá a to přesně obráceně. Čím vyšší je obtížnost tím se mín ubere a čím je nižší tím víc (počítá se to 'obtiznost' - 100) (výjimka je při nule kdy se ani neubírá ani nepřibírá) Score se ukládá a každý nový den se začíná od 0." TextWrapping="Wrap" Margin="300,0,0,80" Height="142" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246"/>
 
         <TextBlock Text=" Poznámky " Margin="619,0,0,383" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
-        <TextBlock Text="- Score je tu poze pro motivaci. A díki score tak můžete sami sebe porovnávat jak jste byly produktivní a jak se vám v daném dnu dařilo. Tenhle přehled můžete vidět v Kalendáři.  " TextWrapping="Wrap" Margin="575,0,0,281" HorizontalAlignment="Left" Width="204" Height="87" VerticalAlignment="Bottom"/>
+        <TextBlock Text="- Score je tu poze pro motivaci. A díky score tak můžete sami sebe porovnávat jak jste byly produktivní a jak se vám v daném dnu dařilo. Tenhle přehled můžete vidět v Kalendáři.  " TextWrapping="Wrap" Margin="575,0,0,281" HorizontalAlignment="Left" Width="204" Height="87" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

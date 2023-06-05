@@ -34,6 +34,7 @@ namespace To_Do_list
 
             refresh(dailyScore);
 
+            // asynchroní funkce na reálný čas
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 textRealDatum.Text = DateTime.Now.ToString();
@@ -41,7 +42,9 @@ namespace To_Do_list
 
 
         }
-
+        /// <summary>
+        /// funkce která podle názvu tlačítka pozná o jaký den se jedná a zapne diář na daný den.
+        /// </summary>
         private void ButtonD1_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
@@ -73,7 +76,9 @@ namespace To_Do_list
             vyberDnu -= 1;
             refresh(this.dailyScore);
         }
-
+        /// <summary>
+        /// funkce na obnovení kalendáře 
+        /// </summary>
         private void refresh(List<DailyScore> dailyScore)
         {
             bool check = false;

@@ -40,7 +40,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Content="Kalendář" Height="34" Margin="612,0,0,296" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Calendar"/>
+        <Button x:Name="a"  Content="Kalendář" Height="34" Margin="612,0,0,296" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Calendar"/>
         <Button Content="Vytvořit" Height="34" Margin="612,0,0,217" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Vytvorit_BTN"/>
         <Button Content="Deník" Height="34" Margin="612,0,0,148" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Denik"/>
         <Button Content="Nápověda a nastavení" Height="34" Margin="612,0,0,76" Width="126" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_nastaveni"/>

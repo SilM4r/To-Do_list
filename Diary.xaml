@@ -12,8 +12,7 @@
         <TextBox x:Name="textObsah" Text="test2" Margin="0,66,0,0" Height="237" VerticalAlignment="Top" HorizontalAlignment="Center" Width="240"
                  HorizontalScrollBarVisibility="Visible"  
                  VerticalScrollBarVisibility="Visible"  
-                 TextWrapping="Wrap"  
-                 MaxLength="800"/>
+                 TextWrapping="Wrap"/>
         <Button x:Name="buttonSave" Content="Uložit" Click="Button_Click" Margin="0,351,0,0" Height="34" VerticalAlignment="Top" HorizontalAlignment="Center" Width="168" />
 
     </Grid>

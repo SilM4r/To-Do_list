@@ -23,6 +23,10 @@ namespace To_Do_list
         List<DailyScore> d;
 
         DailyScore today;
+
+        /// <summary>
+        /// funkce která načte nebo vytvoří nový diař na den který je zadán. 
+        /// </summary>
         public Diary(List<DailyScore> d, DateTime date)
         {
             this.d = d;
